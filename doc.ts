@@ -19,13 +19,14 @@ export async function getDocs(source: string): Promise<DocsData> {
   proc.close();
 
   if (!status.success) {
+    console.log(decoder.decode(err));
     throw new Error(decoder.decode(err));
   }
 
   const json = decoder.decode(out);
   const data: DocsData = {
     nodes: JSON.parse(json) as DocNode[],
-    timestamp: new Date().toDateString(),
+    timestamp: new Date().toISOString(),
   };
 
   return data;

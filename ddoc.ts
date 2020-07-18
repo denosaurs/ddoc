@@ -31,7 +31,7 @@ if (import.meta.main) {
     log.info("server worker closed");
   };
 
-  await delay(500); // give some time for oak to start
+  await delay(750); // give some time for oak to start
 
   log.info("webview is starting...");
 
