@@ -1,7 +1,20 @@
-import { Application, Context, Router, helpers } from "./worker_deps.ts";
+import {
+  Application,
+  Context,
+  Router,
+  helpers,
+  dirname,
+  fromFileUrl,
+  join,
+} from "./deps.ts";
 import { getDocs } from "./doc.ts";
+import { setupLog } from "./log.ts";
+
+await setupLog();
 
 const app = new Application();
+
+const dir = dirname(fromFileUrl(import.meta.url));
 
 const controller = new AbortController();
 const { signal } = controller;
@@ -14,7 +27,7 @@ router.get("/api/docs", async (ctx: Context) => {
 
 router.get("/(.*)", async (ctx: Context) => {
   await ctx.send({
-    root: `${Deno.cwd()}/doc_website/out`,
+    root: join(dir, "doc_website", "out"),
     index: "index.html",
   });
 });

@@ -17,10 +17,8 @@ export {
 } from "https://deno.land/std@0.61.0/fmt/colors.ts";
 
 export {
-  delay,
+  delay
 } from "https://deno.land/std/async/mod.ts";
-
-export { WebView } from "https://deno.land/x/webview/mod.ts";
 
 export {
   Application,
@@ -30,4 +28,10 @@ export {
   Status,
   Context,
   helpers,
-} from "https://deno.land/x/oak/mod.ts";
+} from "https://deno.land/x/oak@v6.0.1/mod.ts";
+
+export {
+  join,
+  dirname,
+  fromFileUrl,
+} from "https://deno.land/std@0.61.0/path/mod.ts";

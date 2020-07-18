@@ -1,4 +1,6 @@
-import { WebView, log, delay } from "./deps.ts";
+import { WebView } from "https://deno.land/x/webview/mod.ts";
+
+import { log, delay } from "./deps.ts";
 import { setupLog } from "./log.ts";
 
 if (import.meta.main) {
