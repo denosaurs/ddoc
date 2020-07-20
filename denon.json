@@ -1,0 +1,33 @@
+{
+  "$schema": "https://deno.land/x/denon/schema.json",
+  "scripts": {
+    "fmt": {
+      "cmd": "deno run scripts/fmt.ts",
+      "allow": [
+        "read",
+        "run"
+      ],
+      "desc": "format code",
+      "watch": false
+    },
+    "check": {
+      "cmd": "deno run scripts/check.ts",
+      "allow": [
+        "read",
+        "run"
+      ],
+      "desc": "check format and linting",
+      "watch": false
+    },
+    "build": {
+      "cmd": "deno run scripts/build.ts",
+      "allow": [
+        "read",
+        "run"
+      ],
+      "desc": "build website",
+      "watch": false
+    }
+  }
+}
+

@@ -1,3 +1,5 @@
+// Copyright 2020-present the denosaurs team. All rights reserved. MIT license.
+
 import { DocsData } from "./third_party/data.ts";
 import { DocNode } from "./third_party/docs.ts";
 

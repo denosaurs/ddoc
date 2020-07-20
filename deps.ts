@@ -1,3 +1,5 @@
+// Copyright 2020-present the denosaurs team. All rights reserved. MIT license.
+
 export * as log from "https://deno.land/std@0.61.0/log/mod.ts";
 export { LogRecord } from "https://deno.land/std@0.61.0/log/logger.ts";
 export {
@@ -17,7 +19,7 @@ export {
 } from "https://deno.land/std@0.61.0/fmt/colors.ts";
 
 export {
-  delay
+  delay,
 } from "https://deno.land/std/async/mod.ts";
 
 export {
