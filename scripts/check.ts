@@ -1,5 +1,6 @@
 // Copyright 2020-present the denosaurs team. All rights reserved. MIT license.
 
+import { assert } from "./script_deps.ts";
 import { files, run } from "./global.ts";
 
 if (import.meta.main) {
@@ -12,7 +13,8 @@ if (import.meta.main) {
     ...files,
   ];
 
-  await run(cmd);
+  let status = await run(cmd);
+  assert(status.success);
 
   console.log("[*] linting...");
 
@@ -23,7 +25,8 @@ if (import.meta.main) {
     ...files,
   ];
 
-  await run(cmd);
+  status = await run(cmd);
+  assert(status.success);
 
   console.log("[*] done!");
 }
