@@ -18,8 +18,8 @@ jobs:
       with:
         deno-version: v1.x
 
-    - name: Check deno fmt
-      run: deno run --allow-read --allow-run scripts/check.ts
+    - name: Check deno fmt and lint
+      run: deno run --allow-read --allow-run --unstable scripts/check.ts
       
   # test:
   #   runs-on: ubuntu-latest
