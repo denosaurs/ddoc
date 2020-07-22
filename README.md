@@ -15,7 +15,9 @@
 
 ## installation
 
-not currently available
+```bash
+deno install -A -f --unstable https://deno.land/x/ddoc/ddoc.ts
+```
 
 ## dev installation
 

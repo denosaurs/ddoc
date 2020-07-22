@@ -19,6 +19,10 @@ export {
 } from "https://deno.land/std@0.61.0/fmt/colors.ts";
 
 export {
+  decodeString,
+} from "https://deno.land/std@0.61.0/encoding/base64.ts";
+
+export {
   delay,
 } from "https://deno.land/std/async/mod.ts";
 
@@ -32,8 +36,13 @@ export {
   helpers,
 } from "https://deno.land/x/oak@v6.0.1/mod.ts";
 
+export { createHttpError } from "https://deno.land/x/oak@v6.0.1/httpError.ts";
+
 export {
   join,
+  parse,
   dirname,
+  extname,
+  basename,
   fromFileUrl,
 } from "https://deno.land/std@0.61.0/path/mod.ts";

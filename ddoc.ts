@@ -1,6 +1,6 @@
 // Copyright 2020-present the denosaurs team. All rights reserved. MIT license.
 
-import { WebView } from "https://deno.land/x/webview/mod.ts";
+import { WebView } from "https://deno.land/x/webview@0.4.4/mod.ts";
 
 import { log, delay } from "./deps.ts";
 import { setupLog } from "./log.ts";

@@ -21,8 +21,10 @@ export class ConsoleHandler extends BaseHandler {
     let msg = "";
 
     const date = new Date();
-    const datestr =
-      `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    const hh = String(date.getHours()).padStart(2, "0");
+    const mm = String(date.getMinutes()).padStart(2, "0");
+    const ss = String(date.getSeconds()).padStart(2, "0");
+    const datestr = `${hh}:${mm}:${ss}`;
     msg += gray(`[${datestr}] `);
     switch (record.level) {
       case LogLevels.DEBUG:
