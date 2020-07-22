@@ -16,27 +16,45 @@
 ## installation
 
 ```bash
-deno install -A -f --unstable https://deno.land/x/ddoc@0.0.1/ddoc.ts
+$ deno install -A -f --unstable https://deno.land/x/ddoc@0.0.1/ddoc.ts
 ```
+
+## usage
+
+### Local files
+
+```
+$ ddoc oak/mod.ts
+```
+
+### Remote files
+
+```
+$ ddoc https://deno.land/x/oak/mod.ts
+```
+
+---
+> ⚠️ Please note that remote files are cached locally after the first generation.
+---
 
 ## dev installation
 
 Clone the repository and its only submodule ([`denosaurs/doc_website`](https://github.com/denosaurs/doc_website)):
 
 ```bash
-git clone --recurse-submodules https://github.com/denosaurs/ddoc
+$ git clone --recurse-submodules https://github.com/denosaurs/ddoc
 ```
 
 Statically build the `denosaurs/doc_website` using the build script:
 
 ```bash
-deno run -A scripts/build.ts
+$ deno run -A scripts/build.ts
 ```
 
-Install the executable to your path:
+And then you can run it:
 
 ```bash
-deno install -A -f --unstable ddoc.ts
+$ deno run -A --unstable ddoc.ts
 ```
 
 ## other
