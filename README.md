@@ -16,7 +16,7 @@
 ## installation
 
 ```bash
-$ deno install -A -f --unstable https://deno.land/x/ddoc@0.0.1/ddoc.ts
+$ deno install -A -f --unstable https://deno.land/x/ddoc@0.0.2/ddoc.ts
 ```
 
 ## usage
