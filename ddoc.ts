@@ -1,20 +1,17 @@
 // Copyright 2020-present the denosaurs team. All rights reserved. MIT license.
 
-import { WebView } from "https://deno.land/x/webview@0.4.4/mod.ts";
+import { WebView } from "https://deno.land/x/webview@0.4.5/mod.ts";
 
 import { log, delay } from "./deps.ts";
 import { setupLog } from "./log.ts";
+import { cli } from "./cli.ts";
+
+export const VERSION = "0.0.2";
 
 if (import.meta.main) {
   await setupLog();
 
-  const args = Deno.args;
-  if (args.length != 1) {
-    log.critical("You need to provide a source. (eg: denodoc <source>)");
-    Deno.exit(1);
-  }
-
-  const source = args[0];
+  const [source, reload, lib] = cli();
 
   const host = "localhost";
   const port = 3000;
@@ -22,6 +19,8 @@ if (import.meta.main) {
 
   const query = new URLSearchParams();
   query.append("url", source);
+  query.append("reload", String(reload));
+  query.append("lib", String(lib));
   const url = new URL(`/?${query.toString()}`, hostname);
 
   log.info("spawning server webworker...");
@@ -33,7 +32,7 @@ if (import.meta.main) {
     log.info("server worker closed");
   };
 
-  await delay(750); // give some time for oak to start
+  await delay(850); // give some time for oak to start
 
   log.info("webview is starting...");
 

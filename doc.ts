@@ -3,9 +3,16 @@
 import { DocsData } from "./third_party/data.ts";
 import { DocNode } from "./third_party/docs.ts";
 
-export async function getDocs(source: string): Promise<DocsData> {
+export async function getDocs(
+  source: string,
+  reload: boolean,
+  deno: boolean,
+): Promise<DocsData> {
+  let cmd = ["deno", "doc", source, "--json"];
+  if (deno) cmd = ["deno", "doc", "--json"];
+  if (reload) cmd.push("--reload");
   const proc = Deno.run({
-    cmd: ["deno", "doc", source, "--json", "--reload"],
+    cmd,
     stdout: "piped",
     stderr: "piped",
   });
@@ -21,7 +28,7 @@ export async function getDocs(source: string): Promise<DocsData> {
   proc.close();
 
   if (!status.success) {
-    console.log(decoder.decode(err));
+    console.error(decoder.decode(err));
     throw new Error(decoder.decode(err));
   }
 

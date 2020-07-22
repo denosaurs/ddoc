@@ -6,7 +6,6 @@ import {
   Router,
   helpers,
   parse,
-  basename,
   extname,
   decodeString,
 } from "./deps.ts";
@@ -25,7 +24,10 @@ const { signal } = controller;
 const router = new Router();
 router.get("/api/docs", async (ctx: Context) => {
   const query = helpers.getQuery(ctx, { mergeParams: true });
-  ctx.response.body = JSON.stringify(await getDocs(query.entrypoint));
+  const { url, reload, lib } = query;
+  ctx.response.body = JSON.stringify(
+    await getDocs(url, reload === "true", lib === "true"),
+  );
 });
 
 router.get("/(.*)", async (ctx: Context) => {
